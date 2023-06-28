@@ -3,10 +3,10 @@
         <div class="col">
 
             <div>
-
+                <a [routerLink]="['/actualiza', indice]">                         <!-- creamos vinculos(enrutamos a /actualiza)-->
                 {{indice+1}}: {{empleadoDeLista.nombre}} {{empleadoDeLista.apellido}} {{empleadoDeLista.cargo}}
                 {{empleadoDeLista.salario}}
-
+                </a>            
             </div>
 
             <app-caracteristicas-empleado-c (caracteristicasEmpleado)="agregarCaracteristica($event)"></app-caracteristicas-empleado-c>

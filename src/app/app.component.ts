@@ -1,4 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+export class AppComponent implements OnInit{ 
+
+  constructor(){
+
+  }
+
+  ngOnInit(): void {}
+
+}
+
+
+
+
+/*
+import { Component, OnInit } from '@angular/core';
 import { Empleado } from './empleado.model';
 import { ServicioEmpleadosService } from './servicio-empleados.service';
 import { EmpleadosService } from './empleados.service';
@@ -25,7 +47,7 @@ export class AppComponent implements OnInit{                    //añadimos OnIn
 
     empleados:Empleado[]=[];
 
-/*
+
 empleados:Empleado[]=[
 
   new Empleado("Vicent","Hidalgo","Presidente",7500),
@@ -33,7 +55,7 @@ empleados:Empleado[]=[
   new Empleado("Maria","Colilla","Jefa",3500),
   new Empleado("Romualdo","Pepino","Administrativo",2000),
 ];
-*/
+
 
 
 cuadroNombre:string="";
@@ -51,3 +73,4 @@ agregarEmpleado(){
 
 }
 
+*/
