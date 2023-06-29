@@ -13,6 +13,7 @@ import { ContactoComponentComponent } from './contacto-component/contacto-compon
 import { QuienesComponentComponent } from './quienes-component/quienes-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizarComponentComponent } from './actualizar-component/actualizar-component.component';
+import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 
 const appRoutes:Routes=[
 
@@ -20,7 +21,8 @@ const appRoutes:Routes=[
   {path:'proyectos', component:ProyectosComponentComponent},
   {path:'quienes', component:QuienesComponentComponent},
   {path:'contacto', component:ContactoComponentComponent},
-  {path:'actualiza/:id', component:ActualizarComponentComponent}
+  {path:'actualiza/:id', component:ActualizarComponentComponent},
+  {path:'**' , component:ErrorPersonalizadoComponent}              // ** cualquier ruta que no especifiquemos (tiene que estar en el ultimo lugar)
 
 ];
 
@@ -34,7 +36,8 @@ const appRoutes:Routes=[
     ProyectosComponentComponent,
     ContactoComponentComponent,
     QuienesComponentComponent,
-    ActualizarComponentComponent
+    ActualizarComponentComponent,
+    ErrorPersonalizadoComponent
 
   ],
   imports: [
