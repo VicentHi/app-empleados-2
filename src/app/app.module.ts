@@ -14,6 +14,8 @@ import { QuienesComponentComponent } from './quienes-component/quienes-component
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizarComponentComponent } from './actualizar-component/actualizar-component.component';
 import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
+import { DataServices } from './data.services';
+import {HttpClientModule } from '@angular/common/http';
 
 const appRoutes:Routes=[
 
@@ -43,10 +45,11 @@ const appRoutes:Routes=[
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   
-  providers: [ServicioEmpleadosService, EmpleadosService],               //registrar servicios 1 y 2         
+  providers: [ServicioEmpleadosService, EmpleadosService, DataServices],               //registrar servicios         
   bootstrap: [AppComponent]
 })
 export class AppModule { }
