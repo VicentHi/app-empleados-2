@@ -16,14 +16,19 @@ import { ActualizarComponentComponent } from './actualizar-component/actualizar-
 import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 import { DataServices } from './data.services';
 import {HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
+import { CookieService } from 'ngx-cookie-service';
+import { LoginGuardian } from './login/login-guardian';
 
 const appRoutes:Routes=[
 
   {path:'', component:HomeComponentComponent},
   {path:'proyectos', component:ProyectosComponentComponent},
   {path:'quienes', component:QuienesComponentComponent},
-  {path:'contacto', component:ContactoComponentComponent},
+  {path:'contacto', component:ContactoComponentComponent, canActivate:[LoginGuardian]},     //con el guardian protegemos la pagina
   {path:'actualiza/:id', component:ActualizarComponentComponent},
+  {path: 'login', component:LoginComponent},
   {path:'**' , component:ErrorPersonalizadoComponent}              // ** cualquier ruta que no especifiquemos (tiene que estar en el ultimo lugar)
 
 ];
@@ -39,7 +44,8 @@ const appRoutes:Routes=[
     ContactoComponentComponent,
     QuienesComponentComponent,
     ActualizarComponentComponent,
-    ErrorPersonalizadoComponent
+    ErrorPersonalizadoComponent,
+    LoginComponent
 
   ],
   imports: [
@@ -49,7 +55,7 @@ const appRoutes:Routes=[
     HttpClientModule
   ],
   
-  providers: [ServicioEmpleadosService, EmpleadosService, DataServices],               //registrar servicios         
+  providers: [ServicioEmpleadosService, EmpleadosService, DataServices, LoginService, CookieService, LoginGuardian],               //registrar servicios         
   bootstrap: [AppComponent]
 })
 export class AppModule { }

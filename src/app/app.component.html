@@ -1,13 +1,27 @@
 <nav class="navbar navbar-expand-sm bg-info">
-  <ul class="nav navbar-nav"> 
+  <ul class="nav navbar-nav">
     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
     <li class="nav-item"><a class="nav-link" href="/proyectos">Proyectos</a></li>
     <li class="nav-item"><a class="nav-link" href="/quienes">Quiénes somos</a></li>
     <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
-  </ul> 
+  </ul>
+
+  <!-- Botones a la derecha  -->
+  <div class="navbar-collapse justify-content-end">
+    <ul class="navbar-nav">
+      <li class="nav-item" *ngIf="!estaLogueado()">
+        <a class="nav-link active" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="estaLogueado()">
+        <a class="nav-link active" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+
 </nav>
 
-<router-outlet></router-outlet>    <!--Etiqueta donde Gestionamos el enrutamiento-->
+
+<router-outlet></router-outlet> <!--Etiqueta donde Gestionamos el enrutamiento-->
 
 
 <!-- (llevamos el contenido a home-compoents.html)

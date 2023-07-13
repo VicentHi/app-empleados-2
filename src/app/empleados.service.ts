@@ -65,11 +65,11 @@ export class EmpleadosService {
   }
 
   eliminarEmpleado(indice: number) {
-    //eliminar elemento del array
+    
 
-    this.empleados.splice(indice, 1);
+    this.empleados.splice(indice, 1);                            //eliminar elemento del array
 
-    this.dataServise.eliminarEmpleados(indice); //eliminar de la BD
+    this.dataServise.eliminarEmpleados(indice);                  //eliminar de la BD
 
     if (this.empleados != null) {                                //si es diferente a null 
 
